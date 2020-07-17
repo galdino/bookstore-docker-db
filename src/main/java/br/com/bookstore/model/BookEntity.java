@@ -1,5 +1,6 @@
 package br.com.bookstore.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -9,9 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.hateoas.ResourceSupport;
+
 @Entity
 @Table(name="BOOK")
-public class BookEntity {
+public class BookEntity extends ResourceSupport implements Serializable{
+	
+	private static final long serialVersionUID = 7280931901230676563L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
